@@ -1,0 +1,24 @@
+<div>
+  Name: <%= form.text_field :name %>
+</div>
+<div>
+  Aura: <%= form.text_area :aura %>
+</div>
+<div>
+  MLB Aura: <%= form.text_area :mlb_aura %>
+</div>
+<div>
+  FLB Aura: <%= form.text_area :flb_aura %>
+</div>
+<%= image_tag @summon.small_pic || '', height: '50' %>
+<div>
+  Small Pic: <%= form.text_field :small_pic %>
+</div>
+<%= image_tag @summon.medium_pic || '', height: '150' %>
+<div>
+  Medium Pic: <%= form.text_field :medium_pic %>
+</div>
+<%= image_tag @summon.large_pic || '', height: '150' %>
+<div>
+  Large Pic: <%= form.text_field :large_pic %>
+</div>

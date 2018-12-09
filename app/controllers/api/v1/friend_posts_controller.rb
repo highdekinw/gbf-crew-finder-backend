@@ -9,6 +9,11 @@ module Api
         render json: { posts: posts }, status: 200
       end
 
+      def show
+        post = FriendPost.where(id: params[:id]).first
+        render json: { post: post }, status: 200
+      end
+
       def create
         post = FriendPost.new(post_params)
 

@@ -1,0 +1,58 @@
+<%= link_to 'Add Summon', new_summon_detail_path %>
+<table border="1">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Element</th>
+      <th colspan="2">Aura</th>
+      <th>Small Pic</th>
+      <th>Medium Pic</th>
+      <th>Large Pic</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @summons.each_with_index do |summon, index| %>
+      <tr>
+        <td rowspan="3">
+          <abbr title="<%= summon.id.to_s %>">
+            <%= index %>
+          </abbr>
+        </td>
+        <td rowspan="3"><%= summon.name %></td>
+        <td rowspan="3"><%= summon.element&.name %></td>
+        <td>0★</td>
+        <td><%= summon.aura %></td>
+        <td rowspan="3">
+          <abbr title="<%= summon.small_pic %>">
+            <%= image_tag summon.small_pic, height: '50' %><br/>
+          </abbr>
+        </td>
+        <td rowspan="3">
+          <abbr title="<%= summon.medium_pic %>">
+            <%= image_tag summon.medium_pic, height: '50' %><br/>
+          </abbr>
+        </td>
+        <td rowspan="3">
+          <abbr title="<%= summon.large_pic %>">
+            <%= image_tag summon.large_pic, height: '50' %><br/>
+          </abbr>
+        </td>
+        <td rowspan="3"><%= link_to 'Edit', edit_summon_detail_path(summon) %></td>
+        <td rowspan="3">
+          <%= link_to 'Delete', summon_detail_path(summon), data: { confirm: 'Are you sure?' }, method: :delete %>
+        </td>
+      </tr>
+      <tr>
+        <td>3★</td>
+        <td><%= summon.mlb_aura %>
+      </tr>
+      <tr>
+        <td>4★</td>
+        <td><%= summon.flb_aura %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

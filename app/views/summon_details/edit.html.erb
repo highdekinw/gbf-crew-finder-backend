@@ -1,0 +1,6 @@
+<%= form_for @summon, url: { action: :update } do |f| %>
+  <%= render partial: 'form', locals: { form: f } %>
+
+  <%= f.submit 'Submit' %>
+  <%= link_to 'Back', summon_details_path %>
+<% end %>
